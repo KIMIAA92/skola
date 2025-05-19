@@ -1,0 +1,395 @@
+html, body {
+    height: 100%;
+  }
+  body {
+      /*background-color: #f1edee;*/
+      background: none repeat scroll 0 0 #e1e1e1;
+      font: 12px Verdana,Arial,Helvetica,sans-serif;
+  }
+  * {
+      margin: 0 auto;
+  }
+  a {
+      border: 0;
+  }
+  img {
+      border: 0;
+  }
+  div.header {
+      margin-top: 0;
+      font-size: 20px;
+      background-color: #c2c2c2;
+      height: 55px;
+      text-align: center;
+      padding-top: 20px;
+      color: white;
+      font-weight: bold;
+  }
+  
+  .header-top h2 {
+      background-image: url("../logo-emis.png");
+      background-repeat: no-repeat;
+      background-position: 90px 10px;
+      color: #999999;
+      font-size: 19px;
+      height: 110px;
+      margin: auto;
+      text-align: center;
+      width: 980px;
+  }
+  
+  .header-top h2 span {
+      background-image: url("../logo-mes-gov-ge.png");
+      background-repeat: no-repeat;
+      background-position: 800px 10px;
+      display: block;
+      height: 70px;
+      padding-top: 40px;
+  }
+  
+  div.footer {
+      margin-bottom: 0;
+      font-size: 20px;
+      background-color: #d7d7d7;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  div.footer ul{ overflow:hidden; list-style-type:none; width:980px; margin:auto; padding:5px 0;}
+  div.footer ul li{ float:left; margin-left:60px;}
+  div.center {
+  }
+  table.mainTable {
+      width: 100%;
+      height: 100%;
+  }
+  .btn {
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857;
+      margin-bottom: 0;
+      padding: 6px 12px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+  }
+  a.index-button-size {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      width: 430px;
+      height: 30px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-left: 50px;
+      padding-right: 50px;
+  }
+  
+  a.index-button-size img{
+      margin-top: 10px;
+  }
+  a.btn-registration-custom {
+      background-color: #4464af;
+  }
+  a.btn-cacnel-custom {
+      background-color: #ec1f26;
+  }
+  a.btn-limit-custom {
+      background-color: #fcb713;
+  }
+  div.formContainer {
+  }
+  div.formContainerStep {
+  }
+  div.headerInfo {
+      background-color: #e0e0e0;
+      border: 1px solid #e0e0e0;
+      color: #5a5655;
+      display: block;
+      font: 16px Verdana,Arial,Helvetica,sans-serif;
+      margin: 0;
+      padding: 5px;
+      margin: 5px;
+      text-align: left;
+  }
+  div.messageInfo {
+      background: none repeat scroll 0 0 #f1edee;
+      border: 1px solid #fcb713;
+      line-height: 20px;
+      margin: 5px;
+  }
+  div.messageInfo ul {
+      padding-top: 10px;
+      padding-right: 0;
+      padding-bottom: 10px;
+      padding-left: 40px;
+  }
+  div.messageAlert {
+      background: none repeat scroll 0 0 #f1edee;
+      border: 1px solid #8cc63e;
+      line-height: 20px;
+      margin: 5px;
+  }
+  div.messageAlert ul {
+      padding-top: 10px;
+      padding-right: 0;
+      padding-bottom: 10px;
+      padding-left: 40px;
+  }
+  ul.stepsErrorMsg {
+      padding-top: 10px;
+      padding-right: 0;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      list-style-type: none;
+  }
+  fieldset.LegengDiv {
+      border: 1px solid #fcb713;
+      width: 450px;
+  }
+  form.mainForm {
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      min-height: 428px;
+      height: auto !important;
+      height: 428px;
+  }
+  div.step-buttons {
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      clear: both;
+      color: #5a5655;
+      display: block;
+      height: 40px;
+      left: 0;
+      margin: 3px 0 0;
+      overflow: auto;
+      padding: 0;
+      position: relative;
+      text-align: left;
+  }
+  div.wizard {
+      width: 980px;
+  }
+  button.btn-disabled {
+      background-color: #cccccc !important;
+      border: 1px solid #cccccc !important;
+      color: #f8f8f8 !important;
+      cursor: text;
+  }
+  button.btn-action {
+      background-color: #5a5655;
+      border: 1px solid #5a5655;
+      color: #fff;
+      display: block;
+      float: right;
+      font: bold 13px Verdana,Arial,Helvetica,sans-serif;
+      margin: 5px 3px 0;
+      outline-style: none;
+      padding: 5px;
+      text-align: center;
+      text-decoration: none;
+      width: 100px;
+  }
+  ul.anchor {
+      background: none repeat scroll 0 0 transparent;
+      border: 0 solid #cccccc;
+      clear: both;
+      display: block;
+      float: left;
+      list-style: outside none none;
+      margin: 2px 0;
+      padding: 0;
+      position: relative;
+  }
+  ul.anchor a.selected {
+      background: none repeat scroll 0 0 #fcb713;
+      border: 1px solid #fcb713;
+      box-shadow: 5px 5px 8px #888;
+      color: #f8f8f8;
+      cursor: text;
+  }
+  ul.anchor a.done {
+      background: none repeat scroll 0 0 #4464af;
+      border: 1px solid #4464af;
+      color: #fff;
+  }
+  ul.anchor li a.disabled {
+      background: none repeat scroll 0 0 #f8f8f8;
+      border: 1px solid #ccc;
+      color: #cccccc;
+      cursor: text;
+  }
+  ul.anchor li {
+      border: 0 solid #e0e0e0;
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0 3px;
+      position: relative;
+  }
+  ul.anchor li a {
+      display: block;
+      float: left;
+      height: 60px;
+      margin: 0;
+      outline-style: none;
+      padding: 3px;
+      position: relative;
+      text-decoration: none;
+      width: 230px;
+  }
+  ul.anchor li a .stepNumber {
+      float: left;
+      font: bold 45px Verdana,Arial,Helvetica,sans-serif;
+      padding: 0 5px 5px;
+      position: relative;
+      text-align: center;
+      width: 30px;
+  }
+  ul.anchor li a .stepNumber {
+      float: left;
+      font: bold 45px Verdana,Arial,Helvetica,sans-serif;
+      padding: 0 5px 5px;
+      position: relative;
+      text-align: center;
+      width: 30px;
+  }
+  div.steps {
+      height: 75px;
+  }
+  table.info {
+      padding-top:15px;
+      padding-left:10px;
+      font-size:14px;
+      width: 900px;
+  }
+  table.info td.level1{
+      width: 50%;
+  }
+  ul.anchor li a .stepDesc1 {
+      display: block;
+      font: bold 14px Verdana,Arial,Helvetica,sans-serif;
+      padding: 5px;
+      text-align: left;
+  }
+  ul.anchor li a .stepDesc2 {
+      display: block;
+      font: bold 14px Verdana,Arial,Helvetica,sans-serif;
+      padding: 2px;
+      text-align: left;
+  }
+  table.fieldsetTable {
+      width: 400px;
+  }
+  div.bbDisabled {
+      display: none;
+  }
+  div.bbEnabled {
+      background-color: #f8f8f8;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-image: url('./../images/loading.gif');
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .hideElement {
+      display: none;
+  }
+  .showElement {
+      display: inherit;
+  }
+  
+  .criticalError {
+      color: red;
+      font-weight: bold;
+  }
+  
+  /*login*/
+  form.login_form {
+      background-color: #f8f8f8;
+      font-family: DejaVu Sans;
+      width: 300px;
+      border-radius: 10px;
+      border: 1px solid black;
+      margin: auto;
+      padding: 10px;
+      box-shadow: 5px 5px 8px #888;
+  }
+  div.login-input-label {
+      margin-top: 20px;
+  }
+  div.login-input-field input {
+      border-radius: 5px;
+      width: 286px;
+      padding: 5px;
+  }
+  div.login-btn {
+      margin-top: 5px;
+      text-align: center;
+  }
+  div.login-title {
+      font-size: 17px;
+  }
+  
+  #divReg1RelFieldset {
+      display: none;
+  }
+  /*.autoSelect {
+      color: red;
+      width: auto;
+  }*/
+  /*.autoSelect:focus {
+      width: auto;
+  }*/
+  /*.selectSelect {
+      color: blue;
+      width: 300px;
+  }*/
+  
+  
+  .copyright-top {
+      background: none repeat scroll 0 0 #a8a8a8;
+  }
+  .copyright {
+      margin: auto;
+      overflow: hidden;
+      width: 980px;
+  }
+  
+  .copyright p {
+      color: #636363;
+      float: left;
+      font-size: 12px;
+      padding: 15px;
+  }
+  
+  .copyright a {
+      display: block;
+      float: right;
+      padding-top: 5px;
+  }
+  
+  .loadingMini{
+      background-color: #f8f8f8;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      background-image: url('./../images/miniloading.gif');
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  
+  #loadingFree {
+      background-color: #f8f8f8;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      background-image: url('./../images/miniloading.gif');
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  

@@ -1,0 +1,1002 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0050)http://registration.mgs.ge/registration.html?v=3# -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>პირველკლასელთა რეგისტრაცია საჯარო სკოლებში</title>
+        <!--        <link rel="stylesheet" href="css/min.css" type="text/css"/>
+            <link rel="stylesheet" href="css/theme.min.css" type="text/css"/>-->
+        <link rel="stylesheet" href="./registration/dhtmlgoodies_calendar.css" type="text/css">
+        <link rel="stylesheet" href="./registration/style.css" type="text/css">
+        <!--[if lte IE 7]>
+    <script src="js/json.js" type="text/javascript"></script>
+    <![endif]-->
+        <!--[if lte IE 8]>
+    <script>
+        if (!Array.prototype.indexOf) {
+            Array.prototype.indexOf = function(obj, start) {
+                for (var i = (start || 0), j = this.length; i < j; i++) {
+                    if (this[i] === obj) {
+                        return i;
+                    }
+                }
+                return -1;
+            };
+        }
+
+        if(typeof String.prototype.trim !== 'function') {
+            String.prototype.trim = function() {
+                return this.replace(/^\s+|\s+$/g, '');
+            };
+        };
+    </script>
+    <![endif]-->
+        <script src="./registration/javascript.js" type="text/javascript"></script>
+        <script src="./registration/geokb.js" type="text/javascript"></script>
+        <script src="./registration/dhtmlgoodies_calendar.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            /*  window.onload = function() {
+            ajax.get('/api/init', function(status, data, t) {
+                if (status == 200 && data) {
+                    var registration = new Registration(data.stage, data);
+                    var st0list = document.getElementById('step0headerlisttext');
+                    var st0 = document.getElementById('st0HeaderText');
+                    st0list.style.display = data.stage == 0 ? '' : 'none';
+                    st0.style.display = data.stage == 0 ? '' : 'none';
+                    if (data.stage == 1) {
+                        var radio = document.getElementById('st1Reationship_1');
+                        radio.checked = true;
+                        radio.checked = false;
+                    }
+                } else {
+                    alert('გთხოვთ განაახლეთ გვერდი');
+                    //window.location.reload();
+                }
+            });
+            var btn = document.getElementById('btnNext');
+            btn.disabled = false;
+            var btn = document.getElementById('btnPrevious');
+            btn.disabled = true;
+
+            var radio = document.getElementById('st1Citizenship_0');
+            radio.checked = true;
+        };*/
+            var Step_ram = 1;
+            function openComment(step) {
+                Step_ram = step;
+                window.location.assign("http://registration.mgs.ge/registration2.html?v=5#")
+            }
+            function makeid(length) {
+                var result = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for (var i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            }
+
+            function activateStep4() {
+                console.log('activateStep4');
+                Step_ram = 4;
+                var btn = document.getElementById("btnPrevious");
+                btn.className = "btn-action btn-disabled";
+                btn.disabled = true;
+                var btn = document.getElementById("btnNext");
+
+                btn.disabled = true;
+                btn.className = "btn-action btn-disabled";
+                var a = document.getElementById("aStep1");
+                a.className = "selected";
+                var a = document.getElementById("aStep2");
+                a.className = "disabled";
+                var st1 = document.getElementById("formContainerStep1");
+                var st2 = document.getElementById("formContainerStep2");
+                var st3 = document.getElementById("formContainerStep3");
+                var st4 = document.getElementById("formContainerStep4");
+                st1.style.display = "none";
+                st2.style.display = "none";
+                st3.style.display = "none";
+                st4.style.display = "";
+                filltext();
+            }
+            function activateStep3() {
+                console.log('activateStep3');
+                Step_ram = 3;
+                var btn = document.getElementById("btnPrevious");
+                btn.className = "btn-action";
+                btn.disabled = true;
+                var btn = document.getElementById("btnNext");
+                btn.className = "btn-action";
+                btn.innerHTML = "დასრულება";
+                btn.disabled = false;
+                var a = document.getElementById("aStep2");
+                a.className = "done";
+                var a = document.getElementById("aStep3");
+                a.className = "selected";
+                var st1 = document.getElementById("formContainerStep1");
+                var st2 = document.getElementById("formContainerStep2");
+                var st3 = document.getElementById("formContainerStep3");
+                var st4 = document.getElementById("formContainerStep4");
+                st1.style.display = "none";
+                st2.style.display = "none";
+                st3.style.display = "";
+                st4.style.display = "none";
+                var inp = document.getElementById("st4FirstName");
+                var text = document.getElementById("st1FirstName")
+                inp.innerHTML = text.value;
+
+            }
+            function activateStep2() {
+                console.log('activateStep2');
+                Step_ram = 2;
+                var btn = document.getElementById("btnPrevious");
+                btn.className = "btn-action";
+                btn.disabled = false;
+                var btn = document.getElementById("btnNext");
+
+                btn.disabled = false;
+                var a = document.getElementById("aStep1");
+                a.className = "done";
+                var a = document.getElementById("aStep2");
+                a.className = "selected";
+                var st1 = document.getElementById("formContainerStep1");
+                var st2 = document.getElementById("formContainerStep2");
+                var st3 = document.getElementById("formContainerStep3");
+                var st4 = document.getElementById("formContainerStep4");
+                st1.style.display = "none";
+                st2.style.display = "";
+                st3.style.display = "none";
+                st4.style.display = "none";
+
+            }
+            function filltext() {
+                var inp = document.getElementById("st4FirstName");
+                var text = document.getElementById("st1FirstName");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4PersonalNumber");
+                text = document.getElementById("st1PersonalNumber");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4LastName");
+                text = document.getElementById("st1LastName");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4Registrator");
+                text = document.getElementById("st2ListParentType");
+                inp.innerHTML = text[text.selectedIndex].text;
+                inp = document.getElementById("st4ParentName");
+                text = document.getElementById("st2ParentFirstName");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4ParentSurname");
+                text = document.getElementById("st2ParentLastName");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4ParentPhone");
+                text = document.getElementById("st2PhoneNumber");
+                inp.innerHTML = text.value;
+                inp = document.getElementById("st4School");
+                text = document.getElementById("st3ListSchool");
+                inp.innerHTML = text[text.selectedIndex].text;
+                inp = document.getElementById("st4RegistrationCode");
+                text = makeid(7);
+                inp.innerHTML = text;
+            }
+            function ckickbtn() {
+                var btn = document.getElementById('btnNext');
+                btn.disabled = false;
+                var btn = document.getElementById('btnPrevious');
+                btn.disabled = true;
+                if (Step_ram == 3) {
+                    activateStep4();
+                }
+                if (Step_ram == 2) {
+                    activateStep3();
+                }
+                if (Step_ram == 1) {
+                    activateStep2();
+                }
+                console.log(Step_ram);
+            }
+            console.log(Step_ram);
+            function returnFirst() {
+                location.href = "http://www.registration.mgs.ge/";
+            }
+        </script>
+    </head>
+    <body style="position: relative;">
+        <table class="mainTable">
+            <tbody>
+                <tr>
+                    <td valign="top">
+                        <div class="header-top" style="text-decoration:none;">
+                            <h2>
+                                <span>
+                                    <img src="./registration/emis-h.jpg" alt="სსიპ განათლების მართვის საინფორმაციო სისტემა" style="margin-top: 10px;">
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="header">
+                            <img src="./registration/header_text.jpg" alt="პირველკლასელთა რეგისტრაცია საჯარო სკოლებში" style="margin-top: 10px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <div id="registrationBody">
+                            <div id="loginDiv" style="display: none;">
+                                <form method="get" action="http://registration.mgs.ge/" class="login_form" onsubmit="return false">
+                                    <div class="login-title">სისტემაში შესვლა</div>
+                                    <div class="login-input-label">
+                                        <label for="user">მომხმარებლის სახელი</label>
+                                    </div>
+                                    <div class="login-input-field">
+                                        <input type="text" autofocus="autofocus" id="user" name="user">
+                                    </div>
+                                    <div class="login-input-label">
+                                        <label for="pass">პაროლი</label>
+                                    </div>
+                                    <div class="login-input-field">
+                                        <input type="password" id="pass" name="pass">
+                                    </div>
+                                    <div class="bbDisabled loadingMini" id="loadingAuthorization"></div>
+                                    <div id="logginErrorInfo" style="color: red;"></div>
+                                    <div class="login-btn">
+                                        <button id="login_submit" name="loginButton">ავტორიზაცია</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="wizard" class="wizard" style="display: block;">
+                                <div class="steps">
+                                    <ul class="anchor">
+                                        <li>
+                                            <a class="done" id="aStep1" href="http://registration.mgs.ge/registration.html?v=3#">
+                                                <label class="stepNumber">1</label>
+                                                <div class="stepDesc1">მოსწავლე</div>
+                                                <div class="stepDesc2">მოსწავლის მონაცემები</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="done" id="aStep2" href="http://registration.mgs.ge/registration.html?v=3#">
+                                                <label class="stepNumber">2</label>
+                                                <div class="stepDesc1">მშობელი</div>
+                                                <div class="stepDesc2">მშობლის მონაცემები</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="selected" id="aStep3" href="http://registration.mgs.ge/registration.html?v=3#">
+                                                <label class="stepNumber">3</label>
+                                                <div class="stepDesc1">სკოლა</div>
+                                                <div class="stepDesc2">სკოლის მონაცემები</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="disabled" id="aStep4" href="http://registration.mgs.ge/registration.html?v=3#">
+                                                <label class="stepNumber">4</label>
+                                                <div class="stepDesc1">რეგისტრაცია</div>
+                                                <div class="stepDesc2" style="font-size: 12px;">რეგისტრაციის დასრულება</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <form action="http://registration.mgs.ge/registration.html?v=3#" method="POST" class="mainForm showElement" id="mainForm">
+                                    <input type="checkbox" checked="checked" value="1" id="geoKeys" name="geoKeys" style="display:none;">
+                                    <div class="formContainerStep" id="formContainerStep1" style="">
+                                        <div class="headerInfo">მოსწავლის პირადი მონაცემები</div>
+                                        <div class="messageInfo">
+                                            <ul>
+                                                <li id="step0headerlisttext" style="display: none;">მიმდინარეობს სსსმ პირების რეგისტრაცია;</li>
+                                                <li id="step1headerlisttext">შესაბამის ველებში მიუთითეთ მოქალაქეობა, ბავშვის პირადი ნომერი, სახელი და გვარი;</li>
+                                                <li>რეგისტრაციის გაგრძელების მიზნით დააჭირეთ ღილაკს „შემდეგი”</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <fieldset id="st0HeaderText" class="LegengDiv" style="display: none;">
+                                                <legend>რეგისტრაციის ეტაპი *</legend>
+                                                <table class="fieldsetTable">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="radio" checked="" name="st1Stage0Rb" id="st1Stage0Rb">
+                                                                <label for="st1Stage0Rb">სპეციალური საგანმანათლებლო საჭიროების მქონე</label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                            <fieldset class="LegengDiv">
+                                                <legend>მოქალაქეობა *</legend>
+                                                <table id="rbCitizenship" class="fieldsetTable">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="radio" checked="checked" value="1" name="rbCitizenship" id="st1Citizenship_0">
+                                                                <label for="st1Citizenship_0">საქართველოს მოქალაქე/ბინადრობის მოწმობის მქონე</label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="radio" value="2" name="rbCitizenship" id="st1Citizenship_1">
+                                                                <label for="st1Citizenship_1">უცხო ქვეყნის მოქალაქე/ბინადრობის მოწმობის არ მქონე</label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                        </div>
+                                        <div>
+                                            <fieldset class="LegengDiv">
+                                                <legend>მოსწავლის პირადი მონაცემები</legend>
+                                                <table align="center" style="padding-top:15px; padding-top:10px;">
+                                                    <tbody>
+                                                        <tr id="st1trPersonalNumber">
+                                                            <td align="right">
+                                                                <label for="st1PersonalNumber">პირადი ნომერი:</label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" style="width:200px;" id="st1PersonalNumber" name="st1PersonalNumber">
+                                                                <span class="reqField">*</span>
+                                                                <span style="color: red; font-weight: bold; display: none;" id="rfvPIN"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label for="st1FirstName">სახელი:</label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" style="width:200px;" onkeypress="return makeGeo(this, event);" id="st1FirstName" name="st1FirstName">
+                                                                <span class="reqField">*</span>
+                                                                <span style="display:none;" id="rfvFirstName"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">
+                                                                <label for="st1LastName">გვარი:</label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" style="width:200px;" onkeypress="return makeGeo(this, event);" id="st1LastName" name="st1LastName">
+                                                                <span class="reqField">*</span>
+                                                                <span style="display:none;" id="st1LastName"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="st1trBirthDate" style="display: none;">
+                                                            <td align="right">
+                                                                <label for="st1Birthdate">დაბადების თარიღი</label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" style="width:180px;" id="st1Birthdate" name="st1Birthdate">
+                                                                <img onclick="displayCalendar(document.forms[1].st1Birthdate,dd/mm/yyyy,this)" value="Cal" alt="" src="./registration/cal.gif">
+                                                                <span class="reqField">*</span>
+                                                                <span style="display:none;" id="rvfBirthDate"></span>
+                                                                <span style="display:none;" id="rxBirthDate"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="st1trGender" style="display: none;">
+                                                            <td align="right">
+                                                                <label for="st1Gender">სქესი:</label>
+                                                            </td>
+                                                            <td>
+                                                                <select style="width:204px;" id="st1Gender" name="st1Gender">
+                                                                    <option value="-1" selected="selected">----აირჩიეთ----</option>
+                                                                    <option value="0">მდედრობითი</option>
+                                                                    <option value="1">მამრობითი</option>
+                                                                </select>
+                                                                <span class="reqField">*</span>
+                                                                <span style="display:none;" id="rfListGender"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="st1trCountry" style="display: none;">
+                                                            <td align="right">
+                                                                <label for="st1Country">ქვეყანა:</label>
+                                                            </td>
+                                                            <td>
+                                                                <select style="width:204px;" id="st1Country" name="st1Country">
+                                                                    <option value="-1">----აირჩიეთ----</option>
+                                                                    <option value="94">ა.შ.შ.              </option>
+                                                                    <option value="95">ავსტრალია           </option>
+                                                                    <option value="96">ავსტრია             </option>
+                                                                    <option value="97">ავღანეთი            </option>
+                                                                    <option value="98">აზერბაიჯანი         </option>
+                                                                    <option value="99">ალბანეთი            </option>
+                                                                    <option value="100">ალჟირი              </option>
+                                                                    <option value="101">ანგოლა              </option>
+                                                                    <option value="102">ანდორა              </option>
+                                                                    <option value="103">ანტიგუა და ბარბუდა  </option>
+                                                                    <option value="104">არაბთა გაერთ.საემირ.</option>
+                                                                    <option value="105">არგენტინა           </option>
+                                                                    <option value="85">არმქონე</option>
+                                                                    <option value="106">ახალი ზელანდია      </option>
+                                                                    <option value="107">ბანგლადეში          </option>
+                                                                    <option value="108">ბარბადოსი           </option>
+                                                                    <option value="109">ბაჰამის კუნძულები   </option>
+                                                                    <option value="110">ბაჰრეინი            </option>
+                                                                    <option value="111">ბელგია              </option>
+                                                                    <option value="112">ბელიზი              </option>
+                                                                    <option value="113">ბელორუსია           </option>
+                                                                    <option value="114">ბენინი              </option>
+                                                                    <option value="115">ბირმა               </option>
+                                                                    <option value="116">ბოლივია             </option>
+                                                                    <option value="117">ბოსნია და ჰერცოგოვ. </option>
+                                                                    <option value="118">ბოტსვანა            </option>
+                                                                    <option value="119">ბრაზილია            </option>
+                                                                    <option value="120">ბრუნეი-დარუსალამი   </option>
+                                                                    <option value="121">ბულგარეთი           </option>
+                                                                    <option value="122">ბურკინა-ფასო        </option>
+                                                                    <option value="123">ბურუნდი             </option>
+                                                                    <option value="124">ბუტანი              </option>
+                                                                    <option value="125">გაბონი              </option>
+                                                                    <option value="126">გაიანა              </option>
+                                                                    <option value="127">გამბია              </option>
+                                                                    <option value="128">განა                </option>
+                                                                    <option value="129">გერმანია            </option>
+                                                                    <option value="130">გვატემალა           </option>
+                                                                    <option value="131">გვინეა              </option>
+                                                                    <option value="132">გვინეა-ბისაუ        </option>
+                                                                    <option value="133">გრენადა             </option>
+                                                                    <option value="134">დანია               </option>
+                                                                    <option value="136">დიდი ბრიტანეთი      </option>
+                                                                    <option value="137">დომინიკის რესპუბლიკა</option>
+                                                                    <option value="138">ეგვიპტე             </option>
+                                                                    <option value="139">ეთიოპია             </option>
+                                                                    <option value="140">ეკვადორი            </option>
+                                                                    <option value="141">ეკვატორული გვინეა   </option>
+                                                                    <option value="142">ერაყი               </option>
+                                                                    <option value="143">ესპანეთი            </option>
+                                                                    <option value="144">ესტონეთი            </option>
+                                                                    <option value="145">ვანუატუ             </option>
+                                                                    <option value="146">ვატიკანი            </option>
+                                                                    <option value="147">ვენესუელა           </option>
+                                                                    <option value="148">ვიეტნამი            </option>
+                                                                    <option value="149">ზაირი               </option>
+                                                                    <option value="150">ზამბია              </option>
+                                                                    <option value="151">ზიმბაბვე            </option>
+                                                                    <option value="152">თურქეთი             </option>
+                                                                    <option value="153">თურქმენეთი          </option>
+                                                                    <option value="154">იამაიკა             </option>
+                                                                    <option value="155">იაპონია             </option>
+                                                                    <option value="156">იემენის რესპუბლიკა  </option>
+                                                                    <option value="157">ინდოეთი             </option>
+                                                                    <option value="158">ინდონეზია           </option>
+                                                                    <option value="159">იორდანია            </option>
+                                                                    <option value="160">ირანი               </option>
+                                                                    <option value="161">ირლანდია            </option>
+                                                                    <option value="162">ისლანდია            </option>
+                                                                    <option value="163">ისრაელი             </option>
+                                                                    <option value="164">იტალია              </option>
+                                                                    <option value="165">იუგოსლავია          </option>
+                                                                    <option value="166">კაბო-ვერდე          </option>
+                                                                    <option value="167">კამბოჯა             </option>
+                                                                    <option value="168">კამერუნი            </option>
+                                                                    <option value="169">კანადა              </option>
+                                                                    <option value="170">კატარი              </option>
+                                                                    <option value="171">კენია               </option>
+                                                                    <option value="172">კვიპროსი            </option>
+                                                                    <option value="173">კირიბატი            </option>
+                                                                    <option value="174">კოლუმბია            </option>
+                                                                    <option value="175">კომორის კუნძულები   </option>
+                                                                    <option value="176">კონგო               </option>
+                                                                    <option value="177">კორეის სდრ</option>
+                                                                    <option value="178">კოსტა-რიკა          </option>
+                                                                    <option value="179">კოტ-დივუარი         </option>
+                                                                    <option value="180">კუბა                </option>
+                                                                    <option value="182">ლაოსი               </option>
+                                                                    <option value="183">ლატვია              </option>
+                                                                    <option value="184">ლესოტო              </option>
+                                                                    <option value="185">ლიბანი              </option>
+                                                                    <option value="186">ლიბერია             </option>
+                                                                    <option value="187">ლიბია               </option>
+                                                                    <option value="188">ლიტვა               </option>
+                                                                    <option value="189">ლიხტენშტეინი        </option>
+                                                                    <option value="190">ლუქსემბურგი         </option>
+                                                                    <option value="191">მადაგასკარი         </option>
+                                                                    <option value="192">მავრიკია            </option>
+                                                                    <option value="193">მავრიტანია          </option>
+                                                                    <option value="194">მაკედონია           </option>
+                                                                    <option value="195">მალავი              </option>
+                                                                    <option value="1">მალაიზია            </option>
+                                                                    <option value="2">მალდივი             </option>
+                                                                    <option value="3">მალი                </option>
+                                                                    <option value="4">მალტა               </option>
+                                                                    <option value="5">მაროკო              </option>
+                                                                    <option value="6">მექსიკა             </option>
+                                                                    <option value="87">მიანმარი</option>
+                                                                    <option value="7">მოზამბიკი           </option>
+                                                                    <option value="8">მოლდოვა             </option>
+                                                                    <option value="9">მონაკო              </option>
+                                                                    <option value="88">მონტენეგრო</option>
+                                                                    <option value="10">მონღოლეთი           </option>
+                                                                    <option value="90">ნამიბია</option>
+                                                                    <option value="11">ნაურუ               </option>
+                                                                    <option value="12">ნეპალი              </option>
+                                                                    <option value="13">ნიგერი              </option>
+                                                                    <option value="14">ნიგერია             </option>
+                                                                    <option value="15">ნიდერლანდები        </option>
+                                                                    <option value="16">ნიკარაგუა           </option>
+                                                                    <option value="17">ნორვეგია            </option>
+                                                                    <option value="18">ომანი               </option>
+                                                                    <option value="19">პაკისტანი           </option>
+                                                                    <option value="20">პანამა              </option>
+                                                                    <option value="21">პაპუა-ახალი გვინეა  </option>
+                                                                    <option value="22">პარაგვაი            </option>
+                                                                    <option value="23">პერუ                </option>
+                                                                    <option value="24">პოლონეთი            </option>
+                                                                    <option value="25">პორტუგალია          </option>
+                                                                    <option value="32">რესპუბლიკა კორეა    </option>
+                                                                    <option value="26">რუანდა              </option>
+                                                                    <option value="27">რუმინეთი            </option>
+                                                                    <option value="28">რუსეთი              </option>
+                                                                    <option value="29">საბერძნეთი          </option>
+                                                                    <option value="30">სალვადორი           </option>
+                                                                    <option value="135">სამოა               </option>
+                                                                    <option value="31">სამხ აფრიკის რესპ</option>
+                                                                    <option value="33">სან-მარინო          </option>
+                                                                    <option value="34">სან-ტომე და პრინსიპი</option>
+                                                                    <option value="35">საუდის არაბეთი      </option>
+                                                                    <option value="36">საფრანგეთი          </option>
+                                                                    <option value="37">სეიშელის კუნძულები  </option>
+                                                                    <option value="38">სენეგალი            </option>
+                                                                    <option value="39">სენტ-ვინსენტი და გრ.</option>
+                                                                    <option value="40">სენტ-კრისტოფერი და ნ</option>
+                                                                    <option value="41">სენტ-ლუსია          </option>
+                                                                    <option value="86">სერბეთი</option>
+                                                                    <option value="42">სვაზილენდი          </option>
+                                                                    <option value="43">სიერა-ლეონე         </option>
+                                                                    <option value="44">სინგაპური           </option>
+                                                                    <option value="45">სირია               </option>
+                                                                    <option value="46">სლოვაკეთი           </option>
+                                                                    <option value="47">სლოვენია            </option>
+                                                                    <option value="48">სოლომონის კუნძულები </option>
+                                                                    <option value="49">სომალი              </option>
+                                                                    <option value="50">სომხეთი             </option>
+                                                                    <option value="51">სუდანი              </option>
+                                                                    <option value="52">სურინამი            </option>
+                                                                    <option value="92">სხვა</option>
+                                                                    <option value="53">ტაივანი             </option>
+                                                                    <option value="54">ტაილანდი            </option>
+                                                                    <option value="55">ტანზანია            </option>
+                                                                    <option value="56">ტაჯიკეთი            </option>
+                                                                    <option value="57">ტოგო                </option>
+                                                                    <option value="58">ტონგა</option>
+                                                                    <option value="59">ტრინიდადი და ტობაგო </option>
+                                                                    <option value="60">ტუვალუ              </option>
+                                                                    <option value="61">ტუნისი              </option>
+                                                                    <option value="62">უგანდა              </option>
+                                                                    <option value="63">უზბეკეთი            </option>
+                                                                    <option value="64">უკრაინა             </option>
+                                                                    <option value="65">უნგრეთი             </option>
+                                                                    <option value="66">ურუგვაი             </option>
+                                                                    <option value="89">უცნობია</option>
+                                                                    <option value="67">ფარერის კუნძულები   </option>
+                                                                    <option value="68">ფილიპინები          </option>
+                                                                    <option value="69">ფინეთი              </option>
+                                                                    <option value="70">ფიჯი                </option>
+                                                                    <option value="181">ქუვეითი </option>
+                                                                    <option value="71">ყაზახეთი            </option>
+                                                                    <option value="72">ყირგიზეთი           </option>
+                                                                    <option value="74">შვედეთი             </option>
+                                                                    <option value="73">შვეიცარია           </option>
+                                                                    <option value="75">შრი-ლანკა           </option>
+                                                                    <option value="76">ჩადი                </option>
+                                                                    <option value="77">ჩეხეთი              </option>
+                                                                    <option value="78">ჩილი                </option>
+                                                                    <option value="79">ჩინეთი              </option>
+                                                                    <option value="91">ჩინეთი (მაკაო, ჰონკონგი)</option>
+                                                                    <option value="80">ცენტრ.აფრიკის რესპ. </option>
+                                                                    <option value="81">ხორვატია            </option>
+                                                                    <option value="82">ჯიბუტი              </option>
+                                                                    <option value="84">ჰაიტი               </option>
+                                                                    <option value="83">ჰონდურასი           </option>
+                                                                </select>
+                                                                <span class="reqField">*</span>
+                                                                <span style="display:none;" id="rfCiticenship"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+                                        </div>
+                                        <table align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="color: red;" id="errorDivMsgStep1"></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div style="color: red;" id="errorDivMsgStep1"></div>
+                                    </div>
+                                    <div class="formContainerStep" id="formContainerStep2" style="display: none;">
+                                        <div class="headerInfo">მშობლის მონაცემები და საკონტაქტო ინფორმაცია</div>
+                                        <div class="messageInfo">
+                                            <ul>
+                                                <li>შესაბამის ველებში მიუთითეთ ერთ-ერთი მშობლის (დედა/მამა/მეურვე/მზრუნველი) პირადი ნომერი, სახელი, გვარი, მობილური ტელეფონის ნომერი და ელექტრონული ფოსტა;</li>
+                                                <li>რეგისტრაციის გაგრძელების მიზნით დააჭირეთ ღილაკს „შემდეგი”</li>
+                                            </ul>
+                                        </div>
+                                        <fieldset class="LegengDiv">
+                                            <legend>მშობლის მონაცემები</legend>
+                                            <table align="center" style="padding-top:10px;padding-top:20px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="right">მშობელი:</td>
+                                                        <td>
+                                                            <select style="width:204px;" id="st2ListParentType" name="st2ListParentType">
+                                                                <option value="-1" selected="selected">----აირჩიეთ----</option>
+                                                                <option value="0">დედა</option>
+                                                                <option value="1">მამა</option>
+                                                                <option value="2">მეურვე/მზრუნველი</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                            <span style="display:none;" id="rfParentType"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">პირადი ნომერი:</td>
+                                                        <td>
+                                                            <input type="text" style="width:200px;" id="st2ParentPersonalNumber" name="st2ParentPersonalNumber">
+                                                            <span class="reqField">*</span>
+                                                            <span style="display:none;" id="rfParentPersonalNumber"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">სახელი:</td>
+                                                        <td>
+                                                            <input type="text" style="width:200px;" onkeypress="return makeGeo(this,event);" id="st2ParentFirstName" name="st2ParentFirstName">
+                                                            <span class="reqField">*</span>
+                                                            <span style="display:none;" id="rfvParentFirstName"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">გვარი:</td>
+                                                        <td>
+                                                            <input type="text" style="width:200px;" onkeypress="return makeGeo(this,event);" id="st2ParentLastName" name="st2ParentLastName">
+                                                            <span class="reqField">*</span>
+                                                            <span style="display:none;" id="rfvParentLastName"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">
+                                                            <label for="st2listPhoneIndex">მობილური ტელეფონის ნომერი:</label>
+                                                        </td>
+                                                        <td>
+                                                            <span id="frPhoneIndex">+995</span>
+                                                            <input type="text" style="width:163px;" id="st2PhoneNumber" name="st2PhoneNumber" placeholder="5XX XXXXXX">
+                                                            <span class="reqField">*</span>
+                                                            <span style="display:none;" id="rfvPhoneNumber"></span>
+                                                            <span style="display:none;" id="rxPhoneNumber"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">ელ.ფოსტა:</td>
+                                                        <td>
+                                                            <input type="text" style="width:200px;" id="stEmail" name="stEmail">
+                                                            <span style="display:none;" id="rxEmail"></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="color: red;" id="errorDivMsgStep2"></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                    <div class="formContainerStep" id="formContainerStep3" style="display: none;">
+                                        <div class="headerInfo">აირჩიეთ სასურველი სკოლა</div>
+                                        <div class="messageInfo">
+                                            <ul>
+                                                <li id="messageInfoField">ჩამოსაშლელი ველების საშუალებით ამოირჩიეთ რეგიონი, რაიონი, სასურველი სკოლა, სექტორი და ცვლა</li>
+                                                <li>რეგისტრაციის გაგრძელების მიზნით დააჭირეთ ღილაკს „დასრულება”</li>
+                                            </ul>
+                                        </div>
+                                        <div class="messageAlert">
+                                            <ul>
+                                                <li>ყურადღება მიაქციეთ თავისუფალი ადგილების რაოდენობას!</li>
+                                                <li>გაითვალისწინეთ, მონაცემები იცვლება დინამიურ რეჟიმში!</li>
+                                            </ul>
+                                        </div>
+                                        <fieldset class="LegengDiv">
+                                            <legend>აირჩიეთ სასურველი სკოლა</legend>
+                                            <table align="center" style="padding-top:15px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="right">რეგიონი:</td>
+                                                        <td>
+                                                            <select style="width:300px;" id="st3ListRegion" name="st3ListRegion">
+                                                                <option value="-1">----აირჩიეთ----</option>
+                                                                <option value="5">აფხაზეთი</option>
+                                                                <option value="12">აჭარა</option>
+                                                                <option value="9">გურია</option>
+                                                                <option value="11">თბილისი</option>
+                                                                <option value="8">იმერეთი</option>
+                                                                <option value="2">კახეთი</option>
+                                                                <option value="4">მცხეთა-მთიანეთი</option>
+                                                                <option value="10">რაჭა-ლეჩხუმი და ქვემო სვანეთი</option>
+                                                                <option value="1">სამეგრელო-ზემო სვანეთი</option>
+                                                                <option value="7">სამცხე-ჯავახეთი</option>
+                                                                <option value="3">ქვემო ქართლი</option>
+                                                                <option value="6">შიდა ქართლი</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">რაიონი:</td>
+                                                        <td>
+                                                            <select style="width:300px;" id="st3ListDistrict" name="st3ListDistrict">
+                                                                <option value="-1">----აირჩიეთ----</option>
+                                                                <option value="38">ბაღდათი</option>
+                                                                <option value="39">ვანი</option>
+                                                                <option value="40">ზესტაფონი</option>
+                                                                <option value="41">თერჯოლა</option>
+                                                                <option value="42">სამტრედია</option>
+                                                                <option value="43">საჩხერე</option>
+                                                                <option value="44">ტყიბული</option>
+                                                                <option value="45">ქუთაისი</option>
+                                                                <option value="46">წყალტუბო</option>
+                                                                <option value="47">ჭიათურა</option>
+                                                                <option value="48">ხარაგაული</option>
+                                                                <option value="49">ხონი</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">სკოლა:</td>
+                                                        <td>
+                                                            <select style="width: 300px; max-width: 400px;" id="st3ListSchool" name="st3ListSchool">
+                                                                <option value="-1">----აირჩიეთ----</option>
+                                                                <option value="737" title="სსიპ - ავთანდილ დეკანოიძის სახელობის ქალაქ ქუთაისის №32 საჯარო სკოლა">სსიპ - ავთანდილ დეკანოიძის სახელობის ქალაქ ქუთაისის №32 საჯარო სკოლა</option>
+                                                                <option value="712" title="სსიპ - აკაკი წერეთლის სახელობის ქალაქ ქუთაისის №1 საჯარო სკოლა">სსიპ - აკაკი წერეთლის სახელობის ქალაქ ქუთაისის №1 საჯარო სკოლა</option>
+                                                                <option value="711" title="სსიპ - ანდრია რაზმაძის სახელობის ქალაქ ქუთაისის №41 ფიზიკა - მათემატიკის საჯარო სკოლა">სსიპ - ანდრია რაზმაძის სახელობის ქალაქ ქუთაისის №41 ფიზიკა - მათემატიკის საჯარო სკოლა</option>
+                                                                <option value="713" title="სსიპ - იოსებ ოცხელის სახელობის ქალაქ ქუთაისის №2 საჯარო სკოლა">სსიპ - იოსებ ოცხელის სახელობის ქალაქ ქუთაისის №2 საჯარო სკოლა</option>
+                                                                <option value="718" title="სსიპ - ქალაქ ქუთაისის №10 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №10 საჯარო სკოლა</option>
+                                                                <option value="719" title="სსიპ - ქალაქ ქუთაისის №11 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №11 საჯარო სკოლა</option>
+                                                                <option value="720" title="სსიპ - ქალაქ ქუთაისის №12 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №12 საჯარო სკოლა</option>
+                                                                <option value="721" title="სსიპ - ქალაქ ქუთაისის №13 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №13 საჯარო სკოლა</option>
+                                                                <option value="716" title="სსიპ - ქალაქ ქუთაისის №14 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №14 საჯარო სკოლა</option>
+                                                                <option value="722" title="სსიპ - ქალაქ ქუთაისის №15 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №15 საჯარო სკოლა</option>
+                                                                <option value="754" title="სსიპ - ქალაქ ქუთაისის №16 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №16 საჯარო სკოლა</option>
+                                                                <option value="723" title="სსიპ - ქალაქ ქუთაისის №17 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №17 საჯარო სკოლა</option>
+                                                                <option value="724" title="სსიპ - ქალაქ ქუთაისის №19 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №19 საჯარო სკოლა</option>
+                                                                <option value="725" title="სსიპ - ქალაქ ქუთაისის №20 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №20 საჯარო სკოლა</option>
+                                                                <option value="726" title="სსიპ - ქალაქ ქუთაისის №21 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №21 საჯარო სკოლა</option>
+                                                                <option value="727" title="სსიპ - ქალაქ ქუთაისის №22 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №22 საჯარო სკოლა</option>
+                                                                <option value="728" title="სსიპ - ქალაქ ქუთაისის №23 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №23 საჯარო სკოლა</option>
+                                                                <option value="729" title="სსიპ - ქალაქ ქუთაისის №24 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №24 საჯარო სკოლა</option>
+                                                                <option value="731" title="სსიპ - ქალაქ ქუთაისის №26 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №26 საჯარო სკოლა</option>
+                                                                <option value="733" title="სსიპ - ქალაქ ქუთაისის №28 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №28 საჯარო სკოლა</option>
+                                                                <option value="734" title="სსიპ - ქალაქ ქუთაისის №29 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №29 საჯარო სკოლა</option>
+                                                                <option value="735" title="სსიპ - ქალაქ ქუთაისის №30 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №30 საჯარო სკოლა</option>
+                                                                <option value="736" title="სსიპ - ქალაქ ქუთაისის №31 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №31 საჯარო სკოლა</option>
+                                                                <option value="738" title="სსიპ - ქალაქ ქუთაისის №33 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №33 საჯარო სკოლა</option>
+                                                                <option value="739" title="სსიპ - ქალაქ ქუთაისის №34 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №34 საჯარო სკოლა</option>
+                                                                <option value="740" title="სსიპ - ქალაქ ქუთაისის №35 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №35 საჯარო სკოლა</option>
+                                                                <option value="741" title="სსიპ - ქალაქ ქუთაისის №36 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №36 საჯარო სკოლა</option>
+                                                                <option value="742" title="სსიპ - ქალაქ ქუთაისის №37 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №37 საჯარო სკოლა</option>
+                                                                <option value="743" title="სსიპ - ქალაქ ქუთაისის №38 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №38 საჯარო სკოლა</option>
+                                                                <option value="730" title="სსიპ - ქალაქ ქუთაისის №4 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №4 საჯარო სკოლა</option>
+                                                                <option value="745" title="სსიპ - ქალაქ ქუთაისის №40 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №40 საჯარო სკოლა</option>
+                                                                <option value="746" title="სსიპ - ქალაქ ქუთაისის №45 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №45 საჯარო სკოლა</option>
+                                                                <option value="749" title="სსიპ - ქალაქ ქუთაისის №5 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №5 საჯარო სკოლა</option>
+                                                                <option value="750" title="სსიპ - ქალაქ ქუთაისის №6 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №6 საჯარო სკოლა</option>
+                                                                <option value="751" title="სსიპ - ქალაქ ქუთაისის №7 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №7 საჯარო სკოლა</option>
+                                                                <option value="752" title="სსიპ - ქალაქ ქუთაისის №8 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №8 საჯარო სკოლა</option>
+                                                                <option value="753" title="სსიპ - ქალაქ ქუთაისის №9 საჯარო სკოლა">სსიპ - ქალაქ ქუთაისის №9 საჯარო სკოლა</option>
+                                                                <option value="774" title="სსიპ - წმიდა ნინოს სახელობის ქალაქ ქუთაისის №3 საჯარო სკოლა">სსიპ - წმიდა ნინოს სახელობის ქალაქ ქუთაისის №3 საჯარო სკოლა</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                            <!--[if lte IE 8]>
+                                            <script type="text/javascript">
+                                                var el = document.getElementById('st3ListSchool');
+                                                add(el, 'focus', function() {
+                                                    el.style.width = 'auto';
+                                                })
+                                                add(el, 'blur', function() {
+                                                    el.style.width = '300px';
+                                                })
+                                                function add(element, type, handler) {
+                                                    if (element.addEventListener) {
+                                                        element.addEventListener(type, handler, false);
+                                                    }else if (element.attachEvent) {
+                                                        element.attachEvent('on' + type, handler)
+                                                    } else {
+                                                        element['on' + type] = handler;
+                                                    }
+                                                }
+                                            </script>
+                                            <![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">სექტორი:</td>
+                                                        <td>
+                                                            <select style="width:300px;" id="st3ListSector" name="st3ListSector">
+                                                                <option value="-1">----აირჩიეთ----</option>
+                                                                <option value="1404" title="ქართული">ქართული</option>
+                                                                <option value="1405" title="რუსული">რუსული</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="st3ShiftRow" style="">
+                                                        <td align="right">ცვლა:</td>
+                                                        <td>
+                                                            <select style="width:300px;" id="st3ListShift" name="st3ListShift">
+                                                                <option value="-1">----აირჩიეთ----</option>
+                                                                <option value="1" title="1">1</option>
+                                                            </select>
+                                                            <span class="reqField">*</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right"></td>
+                                                        <td>
+                                                            <br>
+                                                            <span class="criticalError" id="st3LabelRemaining" style="color: black;">თავისუფალი ადგილების რაოდენობა: 1</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div id="loadingFree" class="bbDisabled" style="display: none;"></div>
+                                            <table align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="color: red;" id="errorDivMsgStep3"></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                        <div class="messageInfo" id="schoolWithMessageDiv" style="display: none; color: red;">
+                                            <ul>
+                                                <li id="schoolWithMessageText"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="formContainerStep" id="formContainerStep4" style="display: none;">
+                                        <div class="headerInfo" id="st4RegistrationStatus"></div>
+                                        <div class="messageInfo">
+                                            <ul>
+                                                <li>გაითვალისწინეთ, რეგისტრაციის პროცესში მითითებული ინფორმაციის სისწორეზე პასუხისმგებელია პირი, რომელიც უშუალოდ ახდენს ბავშვის რეგისტრაციას</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <table align="center" class="info">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="right">სკოლა:</td>
+                                                        <td>
+                                                            <div id="st4School"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">პირადი ნომერი:</td>
+                                                        <td>
+                                                            <div id="st4PersonalNumber"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">სახელი:</td>
+                                                        <td>
+                                                            <div id="st4FirstName"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">გვარი:</td>
+                                                        <td>
+                                                            <div id="st4LastName"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">რეგისტრატორი:</td>
+                                                        <td>
+                                                            <div id="st4Registrator"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">სახელი:</td>
+                                                        <td>
+                                                            <div id="st4ParentName"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">გვარი:</td>
+                                                        <td>
+                                                            <div id="st4ParentSurname"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">მობილური:</td>
+                                                        <td>
+                                                            <div id="st4ParentPhone"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">რეგისტრაციის კოდი:</td>
+                                                        <td>
+                                                            <div style="font-weight: bold;" id="st4RegistrationCode"></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="messageAlert">
+                                            <ul>
+                                                <li>ეკრანზე გამოსახულ რეგისტრაციის კოდს მიიღებთ, როგორც მოკლე ტექსტური შეტყობინების, ასევე ელექტრონული ფოსტის საშუალებით</li>
+                                                <li>გაითვალისწინეთ, რეგისტრაციის კოდი მნიშვნელოვანია ბავშვის შემდგომი იდენტიფიცირებისათვის!</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div id="blockBody" class="bbDisabled" style="height: 100%;"></div>
+                                <div class="step-buttons">
+                                    <button class="btn-action" id="btnFinish" name="btnFinish" onclick="javascript:returnFirst();">დახურვა</button>
+                                    <button class="btn-action" id="btnNext" name="btnNext" onclick="javascript:ckickbtn();">შემდეგი</button>
+                                    <button class="btn-action" id="btnPrevious" name="btnPrevious">დაბრუნება</button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="bottom">
+                        <div class="footer">
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank" title="საქართველოს განათლების, მეცნიერების, კულტურისა და სპორტის სამინისტრო">
+                                        <img src="./registration/logo-mes-gov-ge.png" alt="საქართველოს განათლების, მეცნიერების, კულტურისა და სპორტის სამინისტრო" title="საქართველოს განათლების, მეცნიერების, კულტურისა და სპორტის სამინისტრო">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" title="საგანმანათლებლო დაწესბულებათა კატალოგი">
+                                        <img src="./registration/logo-catalog.jpg" alt="საგანმანათლებლო დაწესბულებათა კატალოგი" title="საგანმანათლებლო დაწესბულებათა კატალოგი">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" title="განათლების მართვის საინფორმაცი სისტემა">
+                                        <img src="./registration/logo-emis.png" alt="განათლების მართვის საინფორმაცი სისტემა" title="განათლების მართვის საინფორმაცი სისტემა">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright-top">
+                            <div class="copyright">
+                                <p>განათლების მართვის საინფორმაციო სისტემა. 2019 ყველა უფლება დაცულია</p>
+                                <a target="_blank" href="#">
+                                    <img title="power by emis" alt="power by emi" src="./registration/EMISBT.JPG">
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;">
+            <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div>
+            <div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div>
+            <div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div>
+            <div style="z-index: 2000000000; position: relative;">
+                <script type="text/javascript">
+                    //registration.mgs.ge
+                    window.onload = function() {
+
+                        var btn = document.getElementById('btnNext');
+                        btn.disabled = false;
+                        var btn = document.getElementById('btnPrevious');
+                        btn.disabled = true;
+
+                        var radio = document.getElementById('st1Citizenship_0');
+                        radio.checked = true;
+
+                    }
+                    ;
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
